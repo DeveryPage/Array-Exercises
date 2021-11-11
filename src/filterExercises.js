@@ -3,6 +3,35 @@ import { useStudents, useInstructors } from "./data/classroom.js";
 const students = useStudents();
 const instructors = useInstructors();
 
+
+
+
+export const getStudentsInCohort = (cohort) => {
+
+    return students.filter(student => student.cohort === cohort)
+     
+}
+// console.log(getStudentsInCohort(12))
+
+export const getFullTimeStudents = () => {
+    return students.filter(student => student.fullTime === true)
+}
+// console.log(getFullTimeStudents())
+
+
+export const getStudentsByInstructorId = (instructorId) => {
+    return students.filter(student => student.instructorId === instructorId)
+}
+// console.log(getStudentsByInstructorId(2))
+
+export const getPolyglotStudents = (languageCount) => {
+    return students.filter(student => student.languages.length >= languageCount)
+}
+
+
+export const getStudentsByLanguage = () => {
+    return students.filter(student => student.instructorId === 0)
+}
 // Export a function named getStudentsInCohort
 // It should accept one integer parameter named `cohort`
 // It should return an array of just the students who are in that cohort
